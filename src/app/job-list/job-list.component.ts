@@ -4,6 +4,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { SettingsService } from '../services/settings/settings.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { JobOrder } from '@bullhorn/bullhorn-types';
 
 @Component({
   selector: 'app-job-list',
@@ -51,8 +52,8 @@ export class JobListComponent implements OnChanges {
     this.displaySidebar.emit(true);
   }
 
-  public loadJob(jobId: number): void {
-    this.router.navigate([`jobs/${jobId}`]);
+  public loadJob(job: JobOrder): void {
+    this.router.navigate([`jobs/${job.id}/${job.title}`]);
     this.loading = true;
   }
 

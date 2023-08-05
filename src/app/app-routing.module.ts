@@ -8,7 +8,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 
 const appRoutes: Routes = [
   { path: '', component: MainPageComponent },
-  { path: 'jobs/:id', component: JobDetailsComponent, resolve: { message: JobResolver } },
+  { path: 'jobs/:id', component: JobDetailsComponent, resolve: { message: JobResolver } }, // keeping non title route for reverse compatibility
+  { path: 'jobs/:id/:title', component: JobDetailsComponent, resolve: { message: JobResolver } },  
   { path: 'jobs', component: MainPageComponent },
   { path: 'privacy', component: PrivacyPolicyComponent },
   {
